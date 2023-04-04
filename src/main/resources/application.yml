@@ -1,0 +1,8 @@
+jwt.sessionTime: 86400
+logging:
+    level:
+      org.springframework.data.mongodb.core.ReactiveMongoTemplate: DEBUG
+spring.data.mongodb.auto-index-creation: true
+#spring.data.mongodb.username=root
+#spring.data.mongodb.port=27017
+#spring.data.mongodb.database=satebd

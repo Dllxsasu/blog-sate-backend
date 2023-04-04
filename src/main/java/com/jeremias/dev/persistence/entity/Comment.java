@@ -1,5 +1,7 @@
 package com.jeremias.dev.persistence.entity;
 
+import static java.util.Optional.ofNullable;
+
 import java.time.Instant;
 
 import org.springframework.data.annotation.Id;
@@ -10,7 +12,6 @@ import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import static java.util.Optional.ofNullable;
 @Document
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Comment {
@@ -47,5 +48,8 @@ public class Comment {
          this.createdAt = ofNullable(createdAt).orElse(Instant.now());
          this.updatedAt = ofNullable(updatedAt).orElse(this.createdAt);
     	
+    }
+    public boolean isAuthor(final User user) {
+        return authorId.equals(user.getId());
     }
 }

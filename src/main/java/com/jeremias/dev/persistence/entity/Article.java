@@ -92,7 +92,7 @@ public class Article {
 		return favoritingUserIds == null ? 0 : favoritingUserIds.size();
 	}
 
-	public Article addComent(final Comment comment) {
+	public Article addComment(final Comment comment) {
 		this.comments.add(comment);
 		return this;
 	}
@@ -108,7 +108,7 @@ public class Article {
 	}
 
 	public Optional<Comment> getCommentById(final String commentId) {
-		return comments.stream().filter(comment -> commentId.equals(comment)).findFirst();
+		return comments.stream().filter(commentId::equals).findFirst();
 	}
 
 	public boolean hasTag(final String tag) {
@@ -120,7 +120,7 @@ public class Article {
 	}
 	
 	public boolean isAuthor(final User author) {
-		return this.authorId.equals(authorId);
+		return isAuthor(author.getId());
 	}
 	public boolean unfavoriteByUser(final User user) {
         if (! favoritingUserIds.contains(user.getId())) {
@@ -136,4 +136,6 @@ public class Article {
         favoritingUserIds.add(user.getId());
         return true;
     }
+
+	
 }

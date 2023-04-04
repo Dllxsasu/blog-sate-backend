@@ -14,7 +14,6 @@ public class NotBlankOrNullValidator implements ConstraintValidator<NotBlankOrNu
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		// TODO Auto-generated method stub
 		if (value == null) {
 			return true;
 		}
